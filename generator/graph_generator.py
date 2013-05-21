@@ -1,7 +1,7 @@
 import random, sys, getopt, itertools
 
 def output_as_list( graph ):
-	return "%d\n%s" % (len(graph),"\n".join( [ "%d %s"%(len(lst)," ".join([ str(j) for j, edge in enumerate(lst) if edge == 1 ])) for i, lst in enumerate(graph) ]))
+	return "%d\n%s" % (len(graph),"\n".join( [ "%d %s"%(sum(lst)," ".join([ str(j) for j, edge in enumerate(lst) if edge == 1 ])) for i, lst in enumerate(graph) ]))
 
 def output_as_matrix( graph ):
 	return "%d\n%s" % (len(graph),"\n".join( " ".join([ str(edge) for edge in vertex ]) for vertex in graph ))
@@ -36,10 +36,6 @@ def generate_graph( N, K, D, minC ):
 	return graph
 
 def main():
-	G = [ [0,1,1],[1,0,1],[1,1,1] ]
-	print output_as_matrix( G )
-	print output_as_list( G )
-	print output_as_matrix( generate_graph( 10, 3, 20, 10 ) )
-
+	print output_as_list( generate_graph( 50, 3, 30, 20 ) )
 if __name__ == "__main__":
 	main()
