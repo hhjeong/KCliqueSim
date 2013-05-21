@@ -83,6 +83,9 @@
   <ItemGroup>
     <ClInclude Include="Base.h" />
     <ClInclude Include="BruteForce.h" />
+    <ClInclude Include="BruteForceByLittlePrune.h" />
+    <ClInclude Include="BruteForceBySort.h" />
+    <ClInclude Include="BruteForceBySortNoIterator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

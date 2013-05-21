@@ -36,6 +36,6 @@ def generate_graph( N, K, D, minC ):
 	return graph
 
 def main():
-	print output_as_list( generate_graph( 50, 3, 30, 20 ) )
+	print output_as_list( generate_graph( 1000, 3, 30, 20 ) )
 if __name__ == "__main__":
 	main()
