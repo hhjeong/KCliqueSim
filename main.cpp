@@ -64,7 +64,7 @@ void testSingleCase( char *testDataName, int K ) {
 	}
 }
 int main() {
-	for( int k = 1 ; k <= 4 ; ++k ) {
+	for( int k = 1 ; k <= 3 ; ++k ) {
 		for( int testno = 1 ; testno <= 4 ; ++testno ) {
 			char fname[100];
 			sprintf( fname, "testdata/test%d.txt", testno );
