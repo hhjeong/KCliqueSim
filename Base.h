@@ -5,6 +5,10 @@
 #include <utility>
 #include <string>
 #include <Windows.h>
+#include <fstream>
+#include <iostream>
+#include <intrin.h>
+
 using namespace std;
 
 class Base {

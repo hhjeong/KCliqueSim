@@ -10,7 +10,14 @@ public:
 	} 
 
 	int solve( vector<int> &lst ) {
-		if( lst.size() == K ) return 1;
+		if( lst.size() == K ) {
+			/*
+			ofstream oup("Logs/bruteforce.txt", ios::app);
+			for( int i = 0 ; i < lst.size() ; ++i ) oup << lst[i] << " ";
+			oup << endl;
+			oup.close();*/
+			return 1;
+		}
 
 		int ret = 0;
 

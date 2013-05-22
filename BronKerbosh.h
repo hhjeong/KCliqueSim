@@ -8,7 +8,7 @@ public:
 	const int N;
 	int K;
 	vector<bool> seen;
-	set< list<int> > cliques;
+	set< vector<int> > cliques;
 
 	BronKerbosh( vector< vector<int> > &g ) : Base(g), N(g.size()), seen(g.size(),false) {
 	} 
@@ -21,6 +21,19 @@ public:
 		}
 		return ret;
 	}
+
+	void addKCliques( list<int> &potentialClique ) {
+		vector<int> tmp( begin(potentialClique), end(potentialClique) );
+
+		for( int s = 0 ; s < (1<<tmp.size()) ; ++s ) if( __popcnt(s) == K  ) {
+			vector<int> foo;
+			for( int j = 0 ; j < tmp.size() ; ++j ) if( (s>>j) & 1 ) {
+				foo.push_back( tmp[j] );
+			}
+			cliques.insert( foo );
+		}
+	}
+
 	bool nomore( list<int> &candidates, list<int> &alreadyFound ) {
 
 		for( auto af = begin(alreadyFound) ; af != end(alreadyFound) ; ++af ) {
@@ -61,7 +74,7 @@ public:
 			}
 
 			if( newCandidates.empty() && newAlreadyFound.empty() ) {
-				cliques.insert( potentialClique );
+				addKCliques( potentialClique );
 				// cerr << "maximal cliques found. size is " << potentialClique.size() << endl;
 			}
 			else {
@@ -85,16 +98,17 @@ public:
 		solve( potentialClique, candidates, alreadyFound );
 
 		int ret = 0;
+		/*
 		for( auto c = begin(cliques) ; c != end(cliques) ; ++c ) {
+			ofstream oup("Logs/bronkerbosh.txt", ios::app);
 			for( auto d = begin(*c) ; d != end(*c) ; ++d ) {
-				cerr << *d << " ";
+				oup << *d << " ";
 			}
-			cerr << endl;
-			ret += NCR(c->size(),K);
-		}
-		return ret;
-
-		return NCR(10,1);
+			oup << endl;
+			oup.close();
+			
+		}*/
+		return cliques.size();
 	}
 
 };

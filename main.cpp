@@ -68,8 +68,8 @@ void testSingleCase( char *testDataName, int K ) {
 	}
 }
 int main() {
-	for( int k = 3 ; k <= 3 ; ++k ) {
-		for( int testno = 0 ; testno <= 0 ; ++testno ) {
+	for( int k = 1 ; k <= 5 ; ++k ) {
+		for( int testno = 5 ; testno <= 6 ; ++testno ) {
 			char fname[100];
 			sprintf( fname, "testdata/test%d.txt", testno );
 			testSingleCase(fname, k );
