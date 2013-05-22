@@ -10,6 +10,7 @@
 #include "BruteForceBySort.h"
 #include "BruteForceBySortNoIterator.h"
 #include "BruteForceByLittlePrune.h"
+#include "BronKerbosh.h"
 using namespace std;
 
 void getInput( char *fileName, vector< vector<int> > &graph ) {
@@ -28,6 +29,7 @@ void getInput( char *fileName, vector< vector<int> > &graph ) {
 			inp >> t;
 			graph[i].push_back(t);
 		}
+		sort( graph[i].begin(), graph[i].end() );
 	}
 	inp.close();
 }
@@ -57,6 +59,8 @@ void testSingleCase( char *testDataName, int K ) {
 	methods.push_back( new BruteForceBySort(graph) );
 	methods.push_back( new BruteForceBySortNoIterator(graph) );
 	methods.push_back( new BruteForceByLittlePrune(graph) );
+	methods.push_back( new BronKerbosh(graph) );
+
 
 	for( int i = 0 ; i < methods.size() ; ++i ) {
 		pair<double,int> ret = run(*methods[i], K);
@@ -64,8 +68,8 @@ void testSingleCase( char *testDataName, int K ) {
 	}
 }
 int main() {
-	for( int k = 1 ; k <= 3 ; ++k ) {
-		for( int testno = 1 ; testno <= 4 ; ++testno ) {
+	for( int k = 3 ; k <= 3 ; ++k ) {
+		for( int testno = 0 ; testno <= 0 ; ++testno ) {
 			char fname[100];
 			sprintf( fname, "testdata/test%d.txt", testno );
 			testSingleCase(fname, k );

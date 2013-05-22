@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base.h" />
+    <ClInclude Include="BronKerbosh.h" />
     <ClInclude Include="BruteForce.h" />
     <ClInclude Include="BruteForceByLittlePrune.h" />
     <ClInclude Include="BruteForceBySort.h" />

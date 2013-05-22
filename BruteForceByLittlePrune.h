@@ -14,6 +14,7 @@ public:
 	} 
 
 	int solve( vector<int> &lst ) {
+
 		if( lst.size() == K ) return 1;
 
 		int ret = 0;
@@ -44,7 +45,7 @@ public:
 		vector<int> label(N,-1);
 
 		for( int i = 0 ; i < N ; ++i ) {
-			if( graph[i].size() >= K ) {
+			if( graph[i].size() >= K-1 ) {
 				degree.push_back( make_pair( -(int)graph[i].size(), i ) );
 			}
 		}
